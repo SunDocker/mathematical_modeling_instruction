@@ -1,6 +1,6 @@
 # Pearson相关系数
 
-## 1 pearson相关系数的计算
+## 1 pearson相关系数的公式
 
 ### 1.1 总体Pearson相关系数
 
@@ -74,7 +74,37 @@
   - 最值、均值、中位数
   - 偏度、峰度、标准差
 
-  > 具体的python实现方式见xl.ipynb、numpy.ipynb
+  > 具体的python实现方式见scipy.ipynb、numpy.ipynb
+  
+  > 也可以直接使用exce**l数据分析**的**描述统计**功能，但需要精简一下
+  
+  > 也比较推荐使用SPSS数据分析软件
+
+## 4 使用工具计算Pearson相关系数
+
+1. 画**散点图**，确定是否**线性相关**
+
+   - 使用SPSS，【图形】【旧对话框】【散点图/点图】【矩阵散点图】【定义】
+
+2. 使用`numpy.corrcoef`，计算相关系数
+
+   - 具体见numpy.ipynb
+
+3. 美化相关系数表
+
+   - 将结果写到excel中
+
+   - 通过【开始】中的【格式】调整单元格大小
+
+   - 通过【开始】中的【数字】调整有效数字
+
+   - 通过【开始】中的【条件格式】【色阶】调整单元格颜色，也可以【编辑规则】
+
+     <img src="README.assets/image-20220728214346233.png" alt="image-20220728214346233" style="zoom:80%;" /><img src="README.assets/image-20220728214456045.png" alt="image-20220728214456045" style="zoom:80%;" />
+
+
+
+
 
 
 
