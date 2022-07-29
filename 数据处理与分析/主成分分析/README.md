@@ -63,6 +63,8 @@
    > <img src="README.assets/image-20220729150818903.png" alt="image-20220729150818903" style="zoom:80%;" />
    >
    > 编程的时候直接去求**pearson相关系数**就好
+   >
+   > 主成分分析本身就比较适合**相关性很强**的，通过相关系数矩阵也可以看出来 
 
 3. 特征值和特征向量
 
@@ -120,11 +122,65 @@
 
 <img src="README.assets/image-20220729160553871.png" alt="image-20220729160553871" style="zoom:80%;" />
 
+### 4.3 例题3
+
 Python实现主成分分析：
 
+```python
+import pandas as pd
+from scipy.stats import zscore
+import numpy as np
+import seaborn as sns
+
+np.set_printoptions(precision=4,suppress=True)
+
+x = pd.read_excel('dataset\\data1.xlsx', header=None).values
+n, p = x.shape
+# Step one & two 标准化，计算协方差
+X = zscore(x)
+R = np.cov(X.T)
+# print(R)
+# 合并成一步，计算相关系数矩阵
+R = np.corrcoef(X.T)
+print('样本相关系数矩阵为：')
+print(R)
+sns.heatmap(R, vmin=-1, vmax=1, cmap='RdBu', annot=True)
+
+# 处理特征值与特征向量，这里的处理方法值得注意
+lambda_, V = np.linalg.eig(R)
+V = V[:,lambda_.argsort()[::-1]]
+lambda_ = np.sort(lambda_)[::-1]
+
+print('特征值为：')
+print(lambda_)
+
+contribution = lambda_/lambda_.sum() 
+print('贡献率为：')
+print(contribution)
+
+cum_con = lambda_.cumsum()/lambda_.sum()
+print('累计贡献率：')
+print(cum_con)
+print(V)
+
+# 得到新的样本主成分指标矩阵
+m = 2 # 主成分个数
+X @ V[:, :m]
+```
+
+<img src="README.assets/image-20220729214927647.png" alt="image-20220729214927647" style="zoom:80%;" />
+
+## 5 滥用问题
+
+<img src="README.assets/image-20220729215806873.png" alt="image-20220729215806873" style="zoom:80%;" />
+
+## 6 应用
+
+### 6.1 聚类
 
 
 
+### 6.2 回归
 
 
 
