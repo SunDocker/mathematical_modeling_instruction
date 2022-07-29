@@ -102,7 +102,21 @@
 
      <img src="README.assets/image-20220728214346233.png" alt="image-20220728214346233" style="zoom:80%;" /><img src="README.assets/image-20220728214456045.png" alt="image-20220728214456045" style="zoom:80%;" />
 
+## 5 假设检验
 
+见假设检验部分
+
+## 6 总结
+
+1. 描述性统计
+
+2. 散点图判断是否线性相关
+
+3. 求解pearson相关系数
+
+4. 正态性检验与假设检验
+
+   > 详见**假设检验**部分
 
 
 
